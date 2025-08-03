@@ -7,3 +7,5 @@
 /docker-compose-dev.yml
 /uv.lock
 /credentials.json
+/data/
+/src/log/archive/
