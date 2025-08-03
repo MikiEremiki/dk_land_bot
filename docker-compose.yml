@@ -1,0 +1,9 @@
+services:
+  bot:
+    build:
+      context: .
+    volumes:
+      - ./data:/app/data
+      - ./src/log/archive:/app/src/log/archive
+      - ./.secrets.toml:/app/.secrets.toml:ro
+      - ./credentials.json:/app/credentials.json:ro

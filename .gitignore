@@ -1,0 +1,9 @@
+.secrets.*
+/server.conf
+/alembic.ini
+**/*.log*
+/.venv
+/.idea
+/docker-compose-dev.yml
+/uv.lock
+/credentials.json

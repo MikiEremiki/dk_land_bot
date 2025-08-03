@@ -1,0 +1,12 @@
+[default]
+bot__developer_chat_id = 454342281
+bot__supply_chat_id = -1002327076836
+bot__supply_thread_id = 902
+
+path__locales = '/app/src/locales/ru/txt.ftl'
+
+google__ddc_range = 'ДДС Аренда!1:2'
+google__path_list_name_for_report = 'data/list_chosen_name_for_report.txt'
+
+[windows]
+path__locales = 'locales/ru/txt.ftl'
