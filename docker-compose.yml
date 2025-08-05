@@ -2,6 +2,8 @@ services:
   bot:
     build:
       context: .
+    restart:
+      unless-stopped
     volumes:
       - ./data:/app/data
       - ./src/log/archive:/app/src/log/archive
