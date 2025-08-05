@@ -1,0 +1,21 @@
+from aiogram.types import (
+    BotCommand, BotCommandScopeDefault, BotCommandScopeChat)
+
+from config.config import Config
+
+
+async def setup_commands(bot, config: Config):
+    await bot.delete_my_commands(BotCommandScopeDefault())
+    balance_cmd = BotCommand(command='balance', description='Отчет по балансам')
+    await bot.set_my_commands([
+        BotCommand(command='start', description='Старт/Перезапуск бота'),
+        balance_cmd,
+    ],
+        scope=BotCommandScopeDefault()
+    )
+    await bot.set_my_commands([
+        balance_cmd,
+    ],
+        scope=BotCommandScopeChat(chat_id=config.bot.supply_chat_id)
+    )
+

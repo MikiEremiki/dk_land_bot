@@ -17,7 +17,7 @@ from handlers.errors import on_unknown_intent, on_unknown_state
 from log.logging_conf import load_log_config
 from middlewares.logging import LoggingMiddleware
 from middlewares.i18n import TranslatorRunnerMiddleware
-from utils.cmds_setup import setup_commands
+from utils.setup_cmds import setup_commands
 from utils.i18n import create_translator_hub
 from handlers import get_routers, send_report_of_balances
 from dialogs import get_dialog_routers
@@ -31,7 +31,7 @@ async def main():
 
     bot = Bot(token=config.bot.token.get_secret_value(),
               default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-    await setup_commands(bot)
+    await setup_commands(bot, config)
     dp = Dispatcher(events_isolation=SimpleEventIsolation())
     scheduler = AsyncIOScheduler(timezone=timezone('Europe/Moscow'))
 
