@@ -9,4 +9,4 @@ google__ddc_range = 'ДДС Аренда!1:2'
 google__path_list_name_for_report = 'data/list_chosen_name_for_report.txt'
 
 [windows]
-path__locales = 'locales/ru/txt.ftl'
+path__locales = 'src/locales/ru/txt.ftl'

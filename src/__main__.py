@@ -7,8 +7,8 @@ from aiogram.filters import ExceptionTypeFilter
 from aiogram.fsm.storage.memory import SimpleEventIsolation
 from aiogram_dialog import setup_dialogs
 from aiogram_dialog.api.exceptions import UnknownIntent, UnknownState
-from fluentogram import TranslatorHub
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from fluentogram import TranslatorHub
 from pytz import timezone
 
 from config import load_config
@@ -19,7 +19,7 @@ from middlewares.logging import LoggingMiddleware
 from middlewares.i18n import TranslatorRunnerMiddleware
 from utils.setup_cmds import setup_commands
 from utils.i18n import create_translator_hub
-from handlers import get_routers, send_report_of_balances
+from handlers import get_routers
 from dialogs import get_dialog_routers
 
 bot_logger = load_log_config()
@@ -27,13 +27,12 @@ bot_logger.info('Инициализация бота')
 
 
 async def main():
-    config: Config = load_config()
+    config: Config = load_config('windows')
 
     bot = Bot(token=config.bot.token.get_secret_value(),
               default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await setup_commands(bot, config)
     dp = Dispatcher(events_isolation=SimpleEventIsolation())
-    scheduler = AsyncIOScheduler(timezone=timezone('Europe/Moscow'))
 
     translator_hub: TranslatorHub = create_translator_hub(config)
 
@@ -48,13 +47,11 @@ async def main():
 
     setup_dialogs(dp)
 
-    scheduler.add_job(
-        send_report_of_balances, 'cron', args=[config, bot],
-        hour=18, minute=0, day_of_week='mon-fri')
+    scheduler = AsyncIOScheduler(timezone=timezone("Europe/Moscow"))
     scheduler.start()
 
     try:
-        await dp.start_polling(bot, config=config)
+        await dp.start_polling(bot, config=config, scheduler=scheduler)
     except Exception as e:
         print(e)
     finally:

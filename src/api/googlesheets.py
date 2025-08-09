@@ -12,7 +12,6 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 FIRST_VALUE = 'Беляков Анатолий'
 LAST_VALUE = 'Касса'
 
-
 def get_creds():
     creds = Credentials.from_service_account_file('credentials.json')
     scoped = creds.with_scopes(SCOPES)

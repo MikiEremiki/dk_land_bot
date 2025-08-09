@@ -15,7 +15,8 @@ async def setup_commands(bot, config: Config):
     )
     await bot.set_my_commands([
         balance_cmd,
+        BotCommand(command='settings', description='Настройки бота')
     ],
-        scope=BotCommandScopeChat(chat_id=config.bot.supply_chat_id)
+        scope=BotCommandScopeChat(chat_id=config.bot.developer_chat_id)
     )
 

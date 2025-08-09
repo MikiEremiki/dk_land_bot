@@ -10,10 +10,11 @@ from .report_of_balance import balance_router, send_report_of_balances
 
 def get_routers(config) -> list[Router]:
     settings_router.message.filter(
-        OnlyAdminFilter([config.bot.developer_chat_id]))
+        OnlyAdminFilter([config.bot.developer_chat_id])
+    )
     return [
         start_router,
         settings_router,
         echo_router,
-        balance_router
+        balance_router,
     ]

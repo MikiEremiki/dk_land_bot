@@ -24,3 +24,9 @@ settings-supply_request-responsible-current_list = Текущий список �
 
 settings-balance-info = Введите команду /balance в теме Снабжение для показа подотчетных средств
 settings-balance = Список для баланса
+
+settings-report-status-text = Вечерний отчёт
+settings-report-status-enabled = Вечерний отчёт: включен
+settings-report-status-disabled = Вечерний отчёт: выключен
+settings-report-toggle-enable = Включить вечерний отчёт
+settings-report-toggle-disable = Выключить вечерний отчёт

@@ -6,6 +6,7 @@
 /.idea
 /docker-compose-dev.yml
 /uv.lock
-/credentials.json
+**/credentials.json
 /data/
 /src/log/archive/
+/.junie/guidelines.md

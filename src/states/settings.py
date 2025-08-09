@@ -6,3 +6,6 @@ class Settings(StatesGroup):
 
 class ReportConfigDialog(StatesGroup):
     select_names = State()
+
+class ConfigJobsDialog(StatesGroup):
+    config_job = State()

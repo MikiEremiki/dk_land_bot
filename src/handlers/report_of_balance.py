@@ -32,7 +32,7 @@ async def report_of_balances(message: Message, config: Config, bot: Bot):
 
 async def send_report_of_balances(config: Config, bot: Bot):
     text = await get_text_report_balance(config)
-    text += "\n\n<i>Вечерний отчет</i>"
+    text += "\n<i>Вечерний отчет</i>"
     await bot.send_message(
         chat_id=config.bot.supply_chat_id,
         text=text,
